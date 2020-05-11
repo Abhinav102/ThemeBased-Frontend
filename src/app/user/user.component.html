@@ -1,0 +1,41 @@
+<div class="ma20">
+    <h2>Welcome Back!</h2>
+    <div class="send_post">
+        <form class="example-form" [formGroup]="form" (ngSubmit)="sendpost()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Cricket time" value="Sushi" formControlName="title">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Body of the post</mat-label>
+                <textarea matInput placeholder="Ex. Going to play cricket... 2 people can join..." 
+                rows="4" formControlName="desc"></textarea>
+            </mat-form-field>
+            <button mat-stroked-button class="postbtn">Post</button>
+        </form>
+    </div>
+    <div class="all_posts" *ngIf="allPosts && allPosts.length > 0">
+        <div *ngFor="let item of allPosts.slice().reverse(); let i = index" class="post">
+            <div *ngIf="item.postedBy" style="font-weight: bold; padding-bottom:10px; color:blue">{{item.postedBy.name}}</div>
+            <div class="commenttitle">{{item.title}} :</div>
+            <div>{{item.body}}</div>
+            <div (click)="toggleicon(i)">
+                <span class="material-icons chat">chat</span>
+                <a class="comment_link">{{item.comments.length}} comments</a>
+            </div>
+            <div class="comment_section" *ngIf="commenticon && currentCommentIndex == i">
+                <div *ngFor="let comment of item.comments" class="comment_box">
+                    <span class="commenter">{{comment.postedBy}}:</span>
+                    <span style="font-size:14px; padding: 0 5px;">{{comment.comment}}</span>
+                    <span style="float:right; font-size:12px;">{{comment.created | date:'medium'}}</span>
+                </div>
+                <mat-form-field class="example-full-width comment_input">
+                    <mat-label>comment</mat-label>
+                    <input matInput placeholder="Ex. is it a 20 over game..." [(ngModel)]="commentValue" name="desc" />
+                </mat-form-field>
+                <button mat-stroked-button [disabled]="!commentValue" (click)="sendcomment(item._id)" 
+                    class="send">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

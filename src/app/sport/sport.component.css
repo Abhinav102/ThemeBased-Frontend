@@ -1,0 +1,39 @@
+.back{
+    background-size: cover;
+    background-repeat: repeat-y;
+    /* height: 100%; */
+    background-position: center;
+    padding: 15px;
+    color: #000;
+}
+.back1{
+    background-image: url('../../assets/images/cricket.jpg');
+    /* background-repeat: repeat-y; */
+}
+.back2{
+    background-image: url('../../assets/images/football.jpg');
+}
+.back3{
+    background-image: url('../../assets/images/bad.jpg');
+}
+.man{
+    margin: 0px !important;
+    color: #fff;
+}
+.content{
+    background: rgba(255, 255, 255, 0.7);
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+li{
+    padding: 5px;
+}
+.fs20{
+    font-size: 20px;
+}
+.pb10{
+    padding-bottom: 10px;
+}
+.pt10{
+    padding-top: 10px;
+}

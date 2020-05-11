@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <a routerLink="/" href="#" class="logo">The Sports Point</a>
+        <span class="example-spacer"></span>
+        <div *ngIf="!loggedInUser else loggedin">
+            <button mat-button (click)="openDialog('signin')" class="login">SIGN IN</button>
+            <span></span>
+            <button mat-stroked-button (click)="openDialog('signup')" class="signup">SIGN UP</button>
+        </div>
+        <ng-template #loggedin>
+            <span class="logo user"> Welcome {{loggedInUser}}!</span>
+            <button mat-stroked-button (click)="signout()" class="signup">SIGN OUT</button>
+        </ng-template>
+    </mat-toolbar-row>
+</mat-toolbar>

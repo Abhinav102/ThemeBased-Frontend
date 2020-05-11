@@ -1,0 +1,21 @@
+<h1 mat-dialog-title *ngIf="data.type == 'signin'">Sign In</h1>
+<h1 mat-dialog-title *ngIf="data.type == 'signup'">Sign Up</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="data.password" type="password" >
+  </mat-form-field>
+  <mat-form-field *ngIf="data.type == 'signup'">
+    <mat-label>Name</mat-label>
+    <input matInput>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="signin()" cdkFocusInitial *ngIf="data.type == 'signin'">Sign In</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial *ngIf="data.type == 'signup'">Sign Up</button>
+</div>

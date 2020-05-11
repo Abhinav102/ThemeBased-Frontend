@@ -1,0 +1,21 @@
+.logo{
+    color: yellow;
+    text-decoration: none;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+.login{
+    color:yellow;
+    border-color: white;
+}
+.signup{
+    color:yellow;
+    border-color: white;
+}
+.mat-toolbar{
+    background-color: #000;
+}
+.user{
+    padding-right:30px;
+}
